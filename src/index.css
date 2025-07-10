@@ -2,41 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* LANREX Car Rental Design System - Professional automotive theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
+    /* Core Colors - Professional automotive palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Royal Blue */
+    --primary: 220 70% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 220 70% 30%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Elegant Gold */
+    --secondary: 45 85% 55%;
+    --secondary-foreground: 220 15% 15%;
+    --secondary-hover: 45 85% 50%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent - Charcoal */
+    --accent: 220 15% 25%;
+    --accent-foreground: 0 0% 100%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 10% 45%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 10% 90%;
+    --input: 220 10% 95%;
+    --ring: 220 70% 35%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom Brand Colors */
+    --brand-gold: 45 85% 55%;
+    --brand-blue: 220 70% 35%;
+    --brand-charcoal: 220 15% 25%;
+    --brand-silver: 220 5% 85%;
+    --brand-white: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-hover)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--brand-gold)), hsl(45 85% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)) 0%, hsl(220 10% 98%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 2px 15px -3px hsl(var(--primary) / 0.07), 0 10px 20px -2px hsl(var(--primary) / 0.04);
+    --shadow-medium: 0 4px 25px -5px hsl(var(--primary) / 0.1), 0 10px 30px -5px hsl(var(--primary) / 0.05);
+    --shadow-strong: 0 10px 40px -10px hsl(var(--primary) / 0.15), 0 20px 50px -10px hsl(var(--primary) / 0.1);
+    --shadow-gold: 0 4px 20px -2px hsl(var(--brand-gold) / 0.25);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +129,115 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  /* Button Variants */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-primary-hover text-primary-foreground px-6 py-3 rounded-lg font-medium shadow-soft hover:shadow-medium transition-all duration-300 hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-secondary to-secondary-hover text-secondary-foreground px-6 py-3 rounded-lg font-medium shadow-soft hover:shadow-gold transition-all duration-300 hover:scale-105;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary bg-transparent px-6 py-3 rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300;
+  }
+
+  /* Card Styles */
+  .card-elegant {
+    @apply bg-gradient-to-br from-background to-muted border border-border rounded-xl shadow-soft hover:shadow-medium transition-all duration-300;
+  }
+
+  .card-featured {
+    @apply bg-gradient-to-br from-background to-muted border-2 border-secondary rounded-xl shadow-gold hover:shadow-strong transition-all duration-300;
+  }
+
+  /* WhatsApp Button */
+  .whatsapp-btn {
+    @apply bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition-all duration-300 hover:scale-105 shadow-soft hover:shadow-medium;
+  }
+
+  /* Hero Section */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  /* Text Gradients */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animations */
+  .hover-lift {
+    @apply hover:scale-105 transition-transform duration-300;
+  }
+
+  .fade-in {
+    @apply animate-fade-in;
+  }
+
+  /* Car Image Styles */
+  .car-image {
+    @apply w-full h-64 object-cover rounded-lg shadow-soft hover:shadow-medium transition-all duration-300;
+  }
+
+  .car-card {
+    @apply card-elegant p-6 hover:scale-105 transition-all duration-300 cursor-pointer;
+  }
+
+  .car-card-featured {
+    @apply card-featured p-6 hover:scale-105 transition-all duration-300 cursor-pointer;
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .font-playfair {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
   }
 }
