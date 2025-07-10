@@ -131,9 +131,12 @@ const Footer = () => {
             <p className="text-sm text-accent-foreground/60">
               © {currentYear} LANREX CONTINENTAL RESOURCES LTD. All rights reserved.
             </p>
-            <p className="text-sm text-accent-foreground/60">
-              Powered by Lovable Web Solutions
-            </p>
+            <button 
+              onClick={() => window.open("https://wa.me/2348130270031", "_blank")}
+              className="text-sm text-accent-foreground/60 hover:text-primary transition-colors cursor-pointer underline"
+            >
+              The Developer
+            </button>
           </div>
         </div>
       </div>

@@ -175,8 +175,8 @@
   }
 
   .hero-with-bg {
-    background: linear-gradient(rgba(21, 36, 76, 0.85), rgba(21, 36, 76, 0.85)), url('/lovable-uploads/3a864a77-1659-41dd-a478-c6e3d37daa68.png');
-    background-size: cover;
+    background: linear-gradient(rgba(21, 36, 76, 0.5), rgba(21, 36, 76, 0.5)), url('/lovable-uploads/3a864a77-1659-41dd-a478-c6e3d37daa68.png');
+    background-size: 110% auto;
     background-position: center;
     background-attachment: fixed;
   }
