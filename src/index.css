@@ -18,18 +18,18 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 15%;
 
-    /* Primary - Royal Blue */
-    --primary: 220 70% 35%;
+    /* Primary - Deep Midnight Blue */
+    --primary: 215 85% 25%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 220 70% 30%;
+    --primary-hover: 215 85% 20%;
 
-    /* Secondary - Elegant Gold */
-    --secondary: 45 85% 55%;
-    --secondary-foreground: 220 15% 15%;
-    --secondary-hover: 45 85% 50%;
+    /* Secondary - Luxurious Gold */
+    --secondary: 43 96% 56%;
+    --secondary-foreground: 215 25% 15%;
+    --secondary-hover: 43 96% 50%;
 
-    /* Accent - Charcoal */
-    --accent: 220 15% 25%;
+    /* Accent - Rich Charcoal */
+    --accent: 215 25% 20%;
     --accent-foreground: 0 0% 100%;
 
     --muted: 220 10% 96%;
@@ -44,18 +44,22 @@
 
     --radius: 0.75rem;
 
-    /* Custom Brand Colors */
-    --brand-gold: 45 85% 55%;
-    --brand-blue: 220 70% 35%;
-    --brand-charcoal: 220 15% 25%;
-    --brand-silver: 220 5% 85%;
+    /* Custom Brand Colors - Enhanced Palette */
+    --brand-gold: 43 96% 56%;
+    --brand-blue: 215 85% 25%;
+    --brand-charcoal: 215 25% 20%;
+    --brand-silver: 210 20% 88%;
     --brand-white: 0 0% 100%;
+    --brand-platinum: 210 15% 92%;
+    --brand-navy: 215 90% 18%;
 
-    /* Gradients */
+    /* Enhanced Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-hover)));
-    --gradient-gold: linear-gradient(135deg, hsl(var(--brand-gold)), hsl(45 85% 45%));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(var(--background)) 0%, hsl(220 10% 98%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(var(--brand-gold)), hsl(43 96% 48%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--brand-navy)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--brand-platinum)) 100%);
+    --gradient-luxury: linear-gradient(145deg, hsl(var(--brand-gold) / 0.1) 0%, hsl(var(--primary) / 0.05) 100%);
+    --gradient-feature: linear-gradient(135deg, hsl(var(--secondary) / 0.1) 0%, hsl(var(--primary) / 0.1) 100%);
 
     /* Shadows */
     --shadow-soft: 0 2px 15px -3px hsl(var(--primary) / 0.07), 0 10px 20px -2px hsl(var(--primary) / 0.04);
@@ -165,9 +169,25 @@
     @apply bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition-all duration-300 hover:scale-105 shadow-soft hover:shadow-medium;
   }
 
-  /* Hero Section */
+  /* Hero Section with Background */
   .hero-gradient {
     background: var(--gradient-hero);
+  }
+
+  .hero-with-bg {
+    background: linear-gradient(rgba(21, 36, 76, 0.85), rgba(21, 36, 76, 0.85)), url('/lovable-uploads/3a864a77-1659-41dd-a478-c6e3d37daa68.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  /* Luxury Section Styles */
+  .luxury-section {
+    background: var(--gradient-luxury);
+  }
+
+  .feature-section {
+    background: var(--gradient-feature);
   }
 
   /* Text Gradients */

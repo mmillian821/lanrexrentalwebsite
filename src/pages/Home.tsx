@@ -61,8 +61,8 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative hero-gradient py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative hero-with-bg py-24 lg:py-40 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-accent/80"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-4xl lg:text-6xl font-playfair font-bold mb-6 animate-fade-in">
@@ -205,31 +205,175 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Features Grid */}
+      <section className="py-16 feature-section">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-playfair font-bold text-primary mb-4">
+              Premium Features & Benefits
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Experience excellence with every journey
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="card-elegant p-6 text-center hover-lift">
+              <Shield className="w-12 h-12 text-secondary mx-auto mb-4" />
+              <h3 className="text-xl font-playfair font-semibold mb-3">Comprehensive Insurance</h3>
+              <p className="text-muted-foreground">Full coverage protection for complete peace of mind during your rental period</p>
+            </div>
+            <div className="card-elegant p-6 text-center hover-lift">
+              <Clock className="w-12 h-12 text-secondary mx-auto mb-4" />
+              <h3 className="text-xl font-playfair font-semibold mb-3">24/7 Support</h3>
+              <p className="text-muted-foreground">Round-the-clock customer service and emergency roadside assistance</p>
+            </div>
+            <div className="card-elegant p-6 text-center hover-lift">
+              <Star className="w-12 h-12 text-secondary mx-auto mb-4" />
+              <h3 className="text-xl font-playfair font-semibold mb-3">Premium Fleet</h3>
+              <p className="text-muted-foreground">Well-maintained, sanitized vehicles from economy to luxury segments</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-playfair font-bold text-primary mb-4">
+              What Our Customers Say
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Real experiences from satisfied customers
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="card-elegant p-6">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-secondary fill-current" />
+                ))}
+              </div>
+              <p className="text-muted-foreground mb-4 italic">
+                "Excellent service! The car was immaculate and the booking process was seamless. Highly recommend LANREX for anyone needing reliable transportation in Lagos."
+              </p>
+              <div className="font-semibold text-foreground">- Adebayo O.</div>
+            </div>
+            <div className="card-elegant p-6">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-secondary fill-current" />
+                ))}
+              </div>
+              <p className="text-muted-foreground mb-4 italic">
+                "Professional chauffeur service for our corporate events. Always punctual and courteous. LANREX has become our go-to car rental company."
+              </p>
+              <div className="font-semibold text-foreground">- Chiamaka N.</div>
+            </div>
+            <div className="card-elegant p-6">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-secondary fill-current" />
+                ))}
+              </div>
+              <p className="text-muted-foreground mb-4 italic">
+                "Great value for money! The SUV was perfect for our family trip. Clean, comfortable, and affordable. Will definitely book again."
+              </p>
+              <div className="font-semibold text-foreground">- Michael T.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Statistics Section */}
+      <section className="py-16 luxury-section">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-4xl lg:text-5xl font-playfair font-bold text-primary mb-2">500+</div>
+              <div className="text-muted-foreground">Happy Customers</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl lg:text-5xl font-playfair font-bold text-primary mb-2">50+</div>
+              <div className="text-muted-foreground">Premium Vehicles</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl lg:text-5xl font-playfair font-bold text-primary mb-2">5</div>
+              <div className="text-muted-foreground">Years Experience</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl lg:text-5xl font-playfair font-bold text-primary mb-2">24/7</div>
+              <div className="text-muted-foreground">Customer Support</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Special Offers */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-playfair font-bold text-primary mb-4">
+              Current Offers & Packages
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Special deals to make your journey even better
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="card-featured p-8">
+              <div className="text-secondary text-sm font-semibold uppercase tracking-wide mb-2">Weekend Special</div>
+              <h3 className="text-2xl font-playfair font-bold mb-4">Weekend Getaway Package</h3>
+              <p className="text-muted-foreground mb-6">
+                Book Friday to Sunday and get 20% off your total rental. Perfect for weekend trips and family outings.
+              </p>
+              <Button onClick={handleWhatsAppClick} className="btn-secondary w-full">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Book Weekend Package
+              </Button>
+            </div>
+            <div className="card-featured p-8">
+              <div className="text-secondary text-sm font-semibold uppercase tracking-wide mb-2">Corporate Deal</div>
+              <h3 className="text-2xl font-playfair font-bold mb-4">Business Travel Solution</h3>
+              <p className="text-muted-foreground mb-6">
+                Monthly corporate packages with dedicated account manager and preferential rates for businesses.
+              </p>
+              <Button onClick={handleWhatsAppClick} className="btn-secondary w-full">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Get Corporate Quote
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-16 bg-primary">
+      <section className="py-20 bg-gradient-to-r from-primary via-accent to-primary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-playfair font-bold text-white mb-4">
+          <h2 className="text-3xl lg:text-5xl font-playfair font-bold text-white mb-6">
             Ready to Hit the Road?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Book your preferred vehicle today and experience the difference with LANREX Continental Resources
+          <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto">
+            Experience the luxury of choice with LANREX Continental Resources. From economy to premium vehicles, 
+            we have the perfect car for every journey and occasion.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               onClick={handleWhatsAppClick}
               size="lg" 
-              className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 text-lg"
+              className="bg-green-500 hover:bg-green-600 text-white px-10 py-5 text-lg font-semibold"
             >
-              <MessageCircle className="w-5 h-5 mr-2" />
-              WhatsApp Booking
+              <MessageCircle className="w-6 h-6 mr-3" />
+              Book via WhatsApp
             </Button>
             <Link to="/contact">
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg"
+                className="border-2 border-white text-white hover:bg-white hover:text-primary px-10 py-5 text-lg font-semibold"
               >
-                Contact Us
+                Contact Us Today
+                <ArrowRight className="w-5 h-5 ml-3" />
               </Button>
             </Link>
           </div>
