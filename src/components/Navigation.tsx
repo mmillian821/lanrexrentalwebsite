@@ -1,9 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone, MessageCircle, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const Navigation = () => {
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -20,30 +22,35 @@ const Navigation = () => {
     window.open("https://wa.me/2348103829933", "_blank");
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <nav className="bg-white shadow-soft sticky top-0 z-50">
       <div className="container mx-auto px-2 lg:px-4">
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center py-4 space-y-4 lg:space-y-0">
+        {/* Desktop Layout */}
+        <div className="hidden lg:flex lg:justify-between lg:items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 justify-center lg:justify-start">
-            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg lg:text-xl">L</span>
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-xl">L</span>
             </div>
-            <div className="text-center lg:text-left">
-              <h1 className="text-lg lg:text-xl font-playfair font-bold text-primary">
+            <div>
+              <h1 className="text-xl font-playfair font-bold text-primary">
                 LANREX CONTINENTAL
               </h1>
-              <p className="text-xs lg:text-sm text-muted-foreground">RESOURCES LTD.</p>
+              <p className="text-sm text-muted-foreground">RESOURCES LTD.</p>
             </div>
           </Link>
 
-          {/* Navigation Menu - Always Visible */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 lg:gap-6">
+          {/* Desktop Navigation Menu */}
+          <div className="flex items-center gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm lg:text-base font-medium transition-colors duration-300 px-2 py-1 rounded-md ${
+                className={`text-base font-medium transition-colors duration-300 px-2 py-1 rounded-md ${
                   isActive(item.path)
                     ? "text-primary bg-primary/10 border-b-2 border-primary"
                     : "text-foreground hover:text-primary hover:bg-muted"
@@ -55,20 +62,90 @@ const Navigation = () => {
           </div>
 
           {/* Contact Info & WhatsApp */}
-          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-end space-y-2 sm:space-y-0 sm:space-x-4">
-            <div className="flex items-center space-x-2 text-xs lg:text-sm text-muted-foreground">
-              <Phone className="w-3 h-3 lg:w-4 lg:h-4" />
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <Phone className="w-4 h-4" />
               <span>+234 810 382 9933</span>
             </div>
             <Button
               onClick={handleWhatsAppClick}
-              className="whatsapp-btn text-xs lg:text-sm"
+              className="whatsapp-btn text-sm"
               size="sm"
             >
-              <MessageCircle className="w-3 h-3 lg:w-4 lg:h-4" />
+              <MessageCircle className="w-4 h-4" />
               WhatsApp
             </Button>
           </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="lg:hidden">
+          <div className="flex justify-between items-center py-4">
+            {/* Logo */}
+            <Link to="/" className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-lg">L</span>
+              </div>
+              <div>
+                <h1 className="text-lg font-playfair font-bold text-primary">
+                  LANREX CONTINENTAL
+                </h1>
+                <p className="text-xs text-muted-foreground">RESOURCES LTD.</p>
+              </div>
+            </Link>
+
+            {/* Mobile Menu Toggle */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleMobileMenu}
+              className="p-2"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </Button>
+          </div>
+
+          {/* Mobile Dropdown Menu */}
+          {isMobileMenuOpen && (
+            <div className="border-t bg-white/95 backdrop-blur-sm">
+              <div className="py-4 space-y-2">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block text-sm font-medium transition-colors duration-300 px-4 py-3 rounded-md ${
+                      isActive(item.path)
+                        ? "text-primary bg-primary/10 border-l-4 border-primary"
+                        : "text-foreground hover:text-primary hover:bg-muted"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+                
+                {/* Mobile Contact Info */}
+                <div className="px-4 py-3 border-t mt-4 space-y-3">
+                  <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                    <Phone className="w-4 h-4" />
+                    <span>+234 810 382 9933</span>
+                  </div>
+                  <Button
+                    onClick={handleWhatsAppClick}
+                    className="whatsapp-btn text-sm w-full"
+                    size="sm"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    WhatsApp
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </nav>
