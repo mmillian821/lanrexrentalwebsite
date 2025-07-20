@@ -61,8 +61,8 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative hero-with-bg py-32 lg:py-60 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-primary/30 to-accent/40"></div>
+      <section className="relative hero-with-bg py-40 lg:py-80 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/65 to-accent/70"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-4xl lg:text-6xl font-playfair font-bold mb-6 animate-fade-in">
